@@ -1,11 +1,8 @@
 import React from 'react';
+import Game from './components/Bingo-Card/card.js';
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+  return <Game />;
 }
 
 export default App;
