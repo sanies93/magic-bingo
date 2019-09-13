@@ -21,6 +21,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import { Link } from "react-router-dom";
+
 
 //Other Components imports
 import Game from "../Bingo-Card/card";
@@ -113,6 +115,7 @@ export default function MiniDrawer() {
 
   return (
     <div className={classes.root}>
+      
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -137,6 +140,7 @@ export default function MiniDrawer() {
           </Typography>
         </Toolbar>
       </AppBar>
+      
       <Drawer
         variant="permanent"
         className={clsx(classes.drawer, {
@@ -216,6 +220,10 @@ export default function MiniDrawer() {
         <div className={classes.toolbar} />
         <Game />
       </main>
+
+      
+
+      hcghfhf
     </div>
   );
 }
