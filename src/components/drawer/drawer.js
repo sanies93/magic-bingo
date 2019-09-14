@@ -85,6 +85,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar
   },
   content: {
+    background: "linear-gradient(45deg, grey 30%, black 90%)",
     flexGrow: 1,
     padding: theme.spacing(3)
   },
