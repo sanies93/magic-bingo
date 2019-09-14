@@ -1,4 +1,3 @@
-AccountIcon {
-  display: flex;
-  align-items: flex-end;
+.main-background {
+  background-image: url("../../images/star.gif");
 }

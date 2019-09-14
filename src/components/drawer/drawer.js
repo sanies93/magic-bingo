@@ -22,7 +22,8 @@ import MailIcon from "@material-ui/icons/Mail";
 //Other Components imports
 import Game from "../Bingo-Card/card";
 import AccountIcon from "../AccountIcon";
-// import "./drawer.css";
+import Image from "../../images/starImage.jpg";
+import "./drawer.css";
 
 const drawerWidth = 240;
 
@@ -85,7 +86,6 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar
   },
   content: {
-    background: "linear-gradient(45deg, grey 30%, black 90%)",
     flexGrow: 1,
     padding: theme.spacing(3)
   },
@@ -110,7 +110,7 @@ export default function MiniDrawer() {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={`${classes.root} main-background`}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -192,10 +192,11 @@ export default function MiniDrawer() {
         </List> */}
       </Drawer>
       <main className={classes.content}>
+        {/* <img src="../../images/starImage.jpg"></img> */}
         <div className={classes.toolbar} />
         <Game />
       </main>
-      hcghfhf
+      {/* hcghfhf */}
     </div>
   );
 }
