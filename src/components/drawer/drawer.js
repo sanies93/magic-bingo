@@ -16,8 +16,12 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+// import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import PersonIcon from "@material-ui/icons/Person";
+import PeopleIcon from "@material-ui/icons/People";
+import CollectionsIcon from "@material-ui/icons/PanTool";
+import ReadingsIcon from "@material-ui/icons/Brightness4";
 
 //Other Components imports
 import Game from "../Bingo-Card/card";
@@ -173,7 +177,11 @@ export default function MiniDrawer() {
           ].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {/* {index % 2 === 0 ? <PersonIcon /> : <PeopleIcon />} */}
+                <PersonIcon />
+                <PeopleIcon />
+                <ReadingsIcon />
+                <CollectionsIcon />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
