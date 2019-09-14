@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex"
   },
   appBar: {
+    background: "linear-gradient(45deg, purple 30%, pink 90%)",
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
@@ -57,6 +58,7 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: "nowrap"
   },
   drawerOpen: {
+    background: "linear-gradient(45deg, pink 30%, purple 90%)",
     width: drawerWidth,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -64,6 +66,7 @@ const useStyles = makeStyles(theme => ({
     })
   },
   drawerClose: {
+    background: "linear-gradient(45deg, pink 30%, purple 90%)",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -161,7 +164,12 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {[
+            "Single-player Game",
+            "Multiplayer Game",
+            "Previous Readings",
+            "Collections"
+          ].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -170,7 +178,7 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
-        <Divider />
+        {/* <Divider />
         <List>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem button key={text}>
@@ -180,7 +188,7 @@ export default function MiniDrawer() {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
