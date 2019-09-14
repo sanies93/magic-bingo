@@ -186,6 +186,7 @@ export default function MiniDrawer() {
         <div className={classes.toolbar} />
         <Game />
       </main>
+      hcghfhf
     </div>
   );
 }
