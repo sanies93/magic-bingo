@@ -18,12 +18,11 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 
 //Other Components imports
 import Game from "../Bingo-Card/card";
+import AccountIcon from "../AccountIcon";
+// import "./drawer.css";
 
 const drawerWidth = 240;
 
@@ -85,6 +84,11 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3)
+  },
+  icon: {
+    flexGrow: 1,
+    display: "flex",
+    justifyContent: "center"
   }
 }));
 
@@ -92,8 +96,6 @@ export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open2 = Boolean(anchorEl);
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -101,14 +103,6 @@ export default function MiniDrawer() {
 
   function handleDrawerClose() {
     setOpen(false);
-  }
-
-  function handleMenu(event) {
-    setAnchorEl(event.currentTarget);
-  }
-
-  function handleClose() {
-    setAnchorEl(null);
   }
 
   return (
@@ -132,9 +126,14 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Magic Bingo
-          </Typography>
+          <div>
+            <Typography variant="h6" noWrap>
+              Magic Bingo
+            </Typography>
+          </div>
+          <div>
+            <AccountIcon className={clsx(classes.icon)} />
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -159,35 +158,6 @@ export default function MiniDrawer() {
               <ChevronLeftIcon />
             )}
           </IconButton>
-          <div>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              open={open2}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-            </Menu>
-          </div>
         </div>
         <Divider />
         <List>
