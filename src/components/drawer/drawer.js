@@ -16,7 +16,6 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-// import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import PersonIcon from "@material-ui/icons/Person";
 import PeopleIcon from "@material-ui/icons/People";
@@ -105,6 +104,21 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  function icon(i) {
+    switch (i) {
+      case 0:
+        return <PersonIcon />;
+      case 1:
+        return <PeopleIcon />;
+      case 2:
+        return <ReadingsIcon />;
+      case 3:
+        return <CollectionsIcon />;
+      default:
+        return <PersonIcon />;
+    }
+  }
+
   function handleDrawerOpen() {
     setOpen(true);
   }
@@ -176,13 +190,7 @@ export default function MiniDrawer() {
             "Collections"
           ].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
-                {/* {index % 2 === 0 ? <PersonIcon /> : <PeopleIcon />} */}
-                <PersonIcon />
-                <PeopleIcon />
-                <ReadingsIcon />
-                <CollectionsIcon />
-              </ListItemIcon>
+              <ListItemIcon>{icon(index)}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
