@@ -16,16 +16,17 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import { Link } from "react-router-dom";
-
+import PersonIcon from "@material-ui/icons/Person";
+import PeopleIcon from "@material-ui/icons/People";
+import CollectionsIcon from "@material-ui/icons/PanTool";
+import ReadingsIcon from "@material-ui/icons/Brightness4";
 
 //Other Components imports
 import Game from "../Bingo-Card/card";
+import AccountIcon from "../AccountIcon";
+import Image from "../../images/starImage.jpg";
+import "./drawer.css";
 
 const drawerWidth = 240;
 
@@ -34,6 +35,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex"
   },
   appBar: {
+    background: "linear-gradient(45deg, purple 30%, pink 90%)",
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
@@ -60,6 +62,7 @@ const useStyles = makeStyles(theme => ({
     whiteSpace: "nowrap"
   },
   drawerOpen: {
+    background: "linear-gradient(45deg, pink 30%, purple 90%)",
     width: drawerWidth,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -67,6 +70,7 @@ const useStyles = makeStyles(theme => ({
     })
   },
   drawerClose: {
+    background: "linear-gradient(45deg, pink 30%, purple 90%)",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -87,6 +91,11 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3)
+  },
+  icon: {
+    flexGrow: 1,
+    display: "flex",
+    justifyContent: "center"
   }
 }));
 
@@ -94,8 +103,21 @@ export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open2 = Boolean(anchorEl);
+
+  function icon(i) {
+    switch (i) {
+      case 0:
+        return <PersonIcon />;
+      case 1:
+        return <PeopleIcon />;
+      case 2:
+        return <ReadingsIcon />;
+      case 3:
+        return <CollectionsIcon />;
+      default:
+        return <PersonIcon />;
+    }
+  }
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -105,17 +127,8 @@ export default function MiniDrawer() {
     setOpen(false);
   }
 
-  function handleMenu(event) {
-    setAnchorEl(event.currentTarget);
-  }
-
-  function handleClose() {
-    setAnchorEl(null);
-  }
-
   return (
-    <div className={classes.root}>
-      
+    <div className={`${classes.root} main-background`}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -135,12 +148,16 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Magic Bingo
-          </Typography>
+          <div>
+            <Typography variant="h6" noWrap>
+              Magic Bingo
+            </Typography>
+          </div>
+          <div>
+            <AccountIcon className={clsx(classes.icon)} />
+          </div>
         </Toolbar>
       </AppBar>
-      
       <Drawer
         variant="permanent"
         className={clsx(classes.drawer, {
@@ -163,48 +180,22 @@ export default function MiniDrawer() {
               <ChevronLeftIcon />
             )}
           </IconButton>
-          <div>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              open={open2}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-            </Menu>
-          </div>
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {[
+            "Single-player Game",
+            "Multiplayer Game",
+            "Previous Readings",
+            "Collections"
+          ].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+              <ListItemIcon>{icon(index)}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
-        <Divider />
+        {/* <Divider />
         <List>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem button key={text}>
@@ -214,16 +205,14 @@ export default function MiniDrawer() {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       <main className={classes.content}>
+        {/* <img src="../../images/starImage.jpg"></img> */}
         <div className={classes.toolbar} />
         <Game />
       </main>
-
-      
-
-      hcghfhf
+      {/* hcghfhf */}
     </div>
   );
 }
