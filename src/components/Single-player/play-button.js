@@ -5,15 +5,15 @@ import CardActions from "@material-ui/core/CardActions";
 import Fab from "@material-ui/core/Fab";
 import NavigationIcon from "@material-ui/icons/Navigation";
 import { ThemeProvider } from "@material-ui/styles";
+import { positions, fontWeight } from "@material-ui/system";
 
 const useStyles = makeStyles(theme => ({
   card: {
-    minWidth: 275
+    minWidth: 275,
+    marginTop: 12
   },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
+  root: {
+    justifyContent: "center"
   },
   title: {
     fontSize: 14
@@ -22,7 +22,13 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 12
   },
   fab: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
+    fontSize: "35px",
+    fontWeight: "bold",
+    maxWidth: "600px",
+    maxHeight: "600px",
+    minWidth: "600px",
+    minHeight: "600px"
   },
   extendedIcon: {
     marginRight: theme.spacing(1)
@@ -31,16 +37,20 @@ const useStyles = makeStyles(theme => ({
 
 export default function PlayButton() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.card}>
-      <CardActions>
-        <Fab variant="extended" aria-label="delete" className={classes.fab}>
-          <NavigationIcon className={classes.extendedIcon} />
-          Extended
-        </Fab>
-      </CardActions>
-    </Card>
+    // <Card className={classes.card}>
+    <CardActions className={classes.root}>
+      <Fab
+        // variant="extended"
+        aria-label="delete"
+        className={classes.fab}
+        color="secondary"
+      >
+        <NavigationIcon className={classes.extendedIcon} />
+        Start Game
+      </Fab>
+    </CardActions>
+    // </Card>
   );
 }

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import "./login.css";
 
- class login extends Component {
+class login extends Component {
   constructor(props) {
     super(props);
 
@@ -16,18 +16,22 @@ import "./login.css";
   }
 
   validateForm() {
-    return this.state.username.length > 0 && this.state.email.length > 0 && this.state.password.length > 0;
+    return (
+      this.state.username.length > 0 &&
+      this.state.email.length > 0 &&
+      this.state.password.length > 0
+    );
   }
 
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
-  }
+  };
 
   render() {
     return (
@@ -36,11 +40,11 @@ import "./login.css";
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bsSize="large">
             <FormLabel>Username</FormLabel>
-            <FormControl 
+            <FormControl
               type="username"
               value={this.state.username}
               onChange={this.handleChange}
-              />
+            />
           </FormGroup>
           <FormGroup controlId="email" bsSize="large">
             <FormLabel>Email</FormLabel>
@@ -75,14 +79,10 @@ import "./login.css";
 
 export default login;
 
-
-
 // import React from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // // maybe add a button
-
-
 
 // class login extends React.Component {
 //   state = {
@@ -93,37 +93,29 @@ export default login;
 
 //   render() {
 //       return(
-          // <div>
-          //     <Link to="/">Back to Game</Link>
-          //   <form>
-          //     <input
-          //       name = 'username'
-          //       placeholder = 'username' />
+// <div>
+//     <Link to="/">Back to Game</Link>
+//   <form>
+//     <input
+//       name = 'username'
+//       placeholder = 'username' />
 
-          //   <input
-          //       name = 'email'
-          //       placeholder = 'email' />
+//   <input
+//       name = 'email'
+//       placeholder = 'email' />
 
+//    <input
+//       name = 'password'
+//       type = 'password'
+//       placeholder = 'password' />
 
-          //    <input 
-          //       name = 'password'
-          //       type = 'password'
-          //       placeholder = 'password' />
-        
-          //       <button onClick={() => this.onSubmit()} type="primary">Submit</button>
-          //     </form>
-              
-          //   </div>
+//       <button onClick={() => this.onSubmit()} type="primary">Submit</button>
+//     </form>
+
+//   </div>
 
 //       )
-//   }  
+//   }
 // }
-
-
-  
-       
-    
-
-
 
 // export default login;
