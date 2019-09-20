@@ -87,15 +87,29 @@ dict.image77 = "../images/Tarot/suitOfWands/threeOfWands.jpg";
 dict.image78 = "../images/Tarot/suitOfWands/twoOfWands.jpg";
 
 class Image extends React.Component {
+    state = {
+        opacity: 1
+    }
+
+    handlePress = () => {
+        this.setState({
+            opacity: 0.5
+        });
+    }
+
     render() {
         var randNum = Math.floor(Math.random() * 78) + 1;
         console.log(randNum);
         console.log(dict["image" + randNum]);
 
-        return <img 
-            width="200"
-            height="300"
-            src={dict["image" + randNum]} />;
+        return (
+            <img onClick={this.props.onClick}
+                width="100"
+                height="150"
+                src={dict["image" + randNum]}
+                style={{ opacity: this.state.opacity }}
+                onPress={this.handlePress} />
+        )
     }
 }
 
