@@ -11,9 +11,9 @@ var ReadingSchema = new Schema({
     },
     body: String
 });
-
 // Create model from the schema using mongoose's model method
 var Reading = mongoose.model('Reading', ReadingSchema);
 
 // Export the model
 module.exports = Reading;
+
