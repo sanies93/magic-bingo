@@ -25,8 +25,8 @@ import ReadingsIcon from "@material-ui/icons/Brightness4";
 //Other Components imports
 import Game from "../Bingo-Card/card";
 import AccountIcon from "../AccountIcon";
-import Image from "../../images/starImage.jpg";
 import "./drawer.css";
+import SinglePlayer from "../Single-player/singleplayer";
 
 const drawerWidth = 240;
 
@@ -195,24 +195,11 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
-        {/* <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
       </Drawer>
       <main className={classes.content}>
-        {/* <img src="../../images/starImage.jpg"></img> */}
         <div className={classes.toolbar} />
-        <Game />
+        <SinglePlayer />
       </main>
-      {/* hcghfhf */}
     </div>
   );
 }
