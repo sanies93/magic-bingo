@@ -2,10 +2,49 @@
     .Login {
       padding: 60px 0;
     }
-  
+
+    .classes-card {
+      max-width: 320px;
+      max-height: 1400px;
+    }
+
+    .MuiCardContent-root {
+      /* width: 400px; */
+      height: 960px;
+      background-image: url("./heart.webp");
+      background-size: contain;
+      display: flex;
+      align-items: center; 
+
+
+  }
+
+  .content{
+    align-self: center;
+    /* width: 360px;
+    height: 400px; */
+  }
+
     .Login form {
       margin: 0 auto;
       max-width: 320px;
+    }
+    .main-back {
+      max-height: 1400px;
+    }
+    .root {
+      padding: 100;
+    }
+
+    /* .container {
+      display: 'flex',
+    } */
+    .textField {
+      align-self: center;
+      width: 200,
+    }
+    .menu {
+      width: 200,
     }
   }
   

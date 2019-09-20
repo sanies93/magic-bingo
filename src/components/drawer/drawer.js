@@ -127,7 +127,7 @@ export default function MiniDrawer() {
     setOpen(false);
   }
 
-  return (
+  return ( 
     <div className={`${classes.root} main-background`}>
       <CssBaseline />
       <AppBar
