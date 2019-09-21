@@ -258,16 +258,6 @@ class Board extends React.Component {
     });
   }
 
-  // handleClick(i) {
-  //   const squares = this.state.squares;
-  //   if (calculateWinner(squares) || squares[i]) {
-  //     return;
-  //   }
-  //   squares[i] = 'X';
-  //   this.setState({
-  //     squares: squares,
-  //   });
-  // }
 
   renderSquare(card) {
     return (
