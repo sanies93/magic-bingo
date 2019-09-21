@@ -1,4 +1,4 @@
-import React from "react";
+
 
 // Add images to dictionary
 const dict = {};
@@ -86,32 +86,64 @@ dict.image76 = "../images/Tarot/suitOfWands/tenOfWands.jpg";
 dict.image77 = "../images/Tarot/suitOfWands/threeOfWands.jpg";
 dict.image78 = "../images/Tarot/suitOfWands/twoOfWands.jpg";
 
+// var imgArray = [];
+
+// for (let i=0; i<9; i++) {
+//     const randNum = Math.floor(Math.random() * 78) + 1;
+//     imgArray.push(dict["image" + randNum]);
+// }
+
+const randNum = () => Math.floor(Math.random() * 78) + 1;
+
 class Image extends React.Component {
     state = {
-        opacity: 1
+        cards: [
+            {
+                id: 1,
+                src: dict["image" + randNum()],
+                opacity: 1,
+                clicked: false
+            },
+            {
+                id: 2,
+                src: dict["image" + randNum()],
+                opacity: 1,
+                clicked: false
+            },
+        ]
     }
 
-    handlePress = () => {
+    handlePress = (id) => {
+        const newCards = this.state.cards.map(card => {
+            if (card.id === id) {
+                return Object.assign({}, card, { opacity: .5, clicked: true })
+            }
+
+            return card;
+        })
+
         this.setState({
-            opacity: 0.5
+            cards: newCards
         });
     }
 
+
     render() {
-        var randNum = Math.floor(Math.random() * 78) + 1;
         console.log(randNum);
         console.log(dict["image" + randNum]);
 
-        return (
+        return this.state.cards.map(card => <div className="row" onClick={() => this.handlePress(card.id)} key={card.id}>
             <img onClick={this.props.onClick}
+                className="col-md-3"
                 width="100"
                 height="150"
-                src={dict["image" + randNum]}
-                style={{ opacity: this.state.opacity }}
-                onPress={this.handlePress} />
-        )
+                src={card.src}
+                style={{ opacity: card.opacity }}
+            />
+            {card.clicked.toString()}
+        </div>)
+
     }
 }
 
-export default Image;
 

@@ -198,7 +198,7 @@ export default function MiniDrawer() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <SinglePlayer />
+        <Game />
       </main>
     </div>
   );

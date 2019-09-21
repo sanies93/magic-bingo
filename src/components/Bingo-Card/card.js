@@ -1,36 +1,121 @@
 import React from "react";
-import Image from "../image.js";
 import "./card.css";
 
+// Add images to dictionary
+const dict = {};
 
-// function imageArray() {
-//   const squares = [];
+dict.image1 = "../images/Tarot/majorArcana/death.jpg";
+dict.image2 = "../images/Tarot/majorArcana/judgment.jpg";
+dict.image3 = "../images/Tarot/majorArcana/justice.jpg";
+dict.image4 = "../images/Tarot/majorArcana/strength.jpg";
+dict.image5 = "../images/Tarot/majorArcana/temperance.jpg";
+dict.image6 = "../images/Tarot/majorArcana/theChariot.jpg";
+dict.image7 = "../images/Tarot/majorArcana/theDevil.jpg";
+dict.image8 = "../images/Tarot/majorArcana/theEmperor.jpg";
+dict.image9 = "../images/Tarot/majorArcana/theEmpress.jpg";
+dict.image10 = "../images/Tarot/majorArcana/theFool.jpg";
+dict.image11 = "../images/Tarot/majorArcana/theHangedMan.jpg";
+dict.image12 = "../images/Tarot/majorArcana/theHermit.jpg";
+dict.image13 = "../images/Tarot/majorArcana/theHierophant.jpg";
+dict.image14 = "../images/Tarot/majorArcana/theHighPriestess.jpg";
+dict.image15 = "../images/Tarot/majorArcana/theLovers.jpg";
+dict.image16 = "../images/Tarot/majorArcana/theMagician.jpg";
+dict.image17 = "../images/Tarot/majorArcana/theMoon.jpg";
+dict.image18 = "../images/Tarot/majorArcana/theStar.jpg";
+dict.image19 = "../images/Tarot/majorArcana/theSun.jpg";
+dict.image20 = "../images/Tarot/majorArcana/theTower.jpg";
+dict.image21 = "../images/Tarot/majorArcana/theWheelOfFortune.jpg";
+dict.image22 = "../images/Tarot/majorArcana/theWorld.jpg";
 
-//   for (let i = 0; i < 10; i++) {
-//     squares.push({
-//       image: <Image />
-//     });
-//   }
+dict.image23 = "../images/Tarot/suitOfCups/aceOfCups.jpg";
+dict.image24 = "../images/Tarot/suitOfCups/eightOfCups.jpg";
+dict.image25 = "../images/Tarot/suitOfCups/fiveOfCups.jpg";
+dict.image26 = "../images/Tarot/suitOfCups/fourOfCups.jpg";
+dict.image27 = "../images/Tarot/suitOfCups/kingOfCups.jpg";
+dict.image28 = "../images/Tarot/suitOfCups/knightOfCups.jpg";
+dict.image29 = "../images/Tarot/suitOfCups/nineOfCups.jpg";
+dict.image30 = "../images/Tarot/suitOfCups/pageOfCups.jpg";
+dict.image31 = "../images/Tarot/suitOfCups/queenOfCups.jpg";
+dict.image32 = "../images/Tarot/suitOfCups/sevenOfCups.jpg";
+dict.image33 = "../images/Tarot/suitOfCups/sixOfCups.jpg";
+dict.image34 = "../images/Tarot/suitOfCups/tenOfCups.jpg";
+dict.image35 = "../images/Tarot/suitOfCups/threeOfCups.jpg";
+dict.image36 = "../images/Tarot/suitOfCups/twoOfCups.jpg";
 
-//   this.state = { squares };
+dict.image37 = "../images/Tarot/suitOfPentacles/aceOfPentacles.jpg";
+dict.image38 = "../images/Tarot/suitOfPentacles/eightOfPentacles.jpg";
+dict.image39 = "../images/Tarot/suitOfPentacles/fiveOfPentacles.jpg";
+dict.image40 = "../images/Tarot/suitOfPentacles/fourOfPentacles.jpg";
+dict.image41 = "../images/Tarot/suitOfPentacles/kingOfPentacles.jpg";
+dict.image42 = "../images/Tarot/suitOfPentacles/knightOfPentacles.jpg";
+dict.image43 = "../images/Tarot/suitOfPentacles/nineOfPentacles.jpg";
+dict.image44 = "../images/Tarot/suitOfPentacles/pageOfPentacles.jpg";
+dict.image45 = "../images/Tarot/suitOfPentacles/queenOfPentacles.jpg";
+dict.image46 = "../images/Tarot/suitOfPentacles/sevenOfPentacles.jpg";
+dict.image47 = "../images/Tarot/suitOfPentacles/sixOfPentacles.jpg";
+dict.image48 = "../images/Tarot/suitOfPentacles/tenOfPentacles.jpg";
+dict.image49 = "../images/Tarot/suitOfPentacles/threeOfPentacles.jpg";
+dict.image50 = "../images/Tarot/suitOfPentacles/twoOfPentacles.jpg";
 
-//   render() {
-//     return (
-//     <div>
-//       {this.state.squares.map((square, index) => (
-//         <img key={index} />
-//       ))}
-//     </div>);
-//   }
+dict.image51 = "../images/Tarot/suitOfSwords/aceOfSwords.jpg";
+dict.image52 = "../images/Tarot/suitOfSwords/eightOfSwords.jpg";
+dict.image53 = "../images/Tarot/suitOfSwords/fiveOfSwords.jpg";
+dict.image54 = "../images/Tarot/suitOfSwords/fourOfSwords.jpg";
+dict.image55 = "../images/Tarot/suitOfSwords/kingOfSwords.jpg";
+dict.image56 = "../images/Tarot/suitOfSwords/knightOfSwords.jpg";
+dict.image57 = "../images/Tarot/suitOfSwords/nineOfSwords.jpg";
+dict.image58 = "../images/Tarot/suitOfSwords/pageOfSwords.jpg";
+dict.image59 = "../images/Tarot/suitOfSwords/queenOfSwords.jpg";
+dict.image60 = "../images/Tarot/suitOfSwords/sevenOfSwords.jpg";
+dict.image61 = "../images/Tarot/suitOfSwords/sixOfSwords.jpg";
+dict.image62 = "../images/Tarot/suitOfSwords/tenOfSwords.jpg";
+dict.image63 = "../images/Tarot/suitOfSwords/threeOfSwords.jpg";
+dict.image64 = "../images/Tarot/suitOfSwords/twoOfSwords.jpg";
+
+dict.image65 = "../images/Tarot/suitOfWands/aceOfWands.jpg";
+dict.image66 = "../images/Tarot/suitOfWands/eightOfWands.jpg";
+dict.image67 = "../images/Tarot/suitOfWands/fiveOfWands.jpg";
+dict.image68 = "../images/Tarot/suitOfWands/fourOfWands.jpg";
+dict.image69 = "../images/Tarot/suitOfWands/kingOfWands.jpg";
+dict.image70 = "../images/Tarot/suitOfWands/knightOfWands.jpg";
+dict.image71 = "../images/Tarot/suitOfWands/nineOfWands.jpg";
+dict.image72 = "../images/Tarot/suitOfWands/pageOfWands.jpg";
+dict.image73 = "../images/Tarot/suitOfWands/queenOfWands.jpg";
+dict.image74 = "../images/Tarot/suitOfWands/sevenOfWands.jpg";
+dict.image75 = "../images/Tarot/suitOfWands/sixOfWands.jpg";
+dict.image76 = "../images/Tarot/suitOfWands/tenOfWands.jpg";
+dict.image77 = "../images/Tarot/suitOfWands/threeOfWands.jpg";
+dict.image78 = "../images/Tarot/suitOfWands/twoOfWands.jpg";
+
+// var imgArray = [];
+
+// for (let i=0; i<9; i++) {
+//     const randNum = Math.floor(Math.random() * 78) + 1;
+//     imgArray.push(dict["image" + randNum]);
 // }
 
-function Square(props) {
-  return (
-    // <button className="square" onClick={props.onClick}>
-    //   {props.value}
-    // </button>
-    <Image className="square" onClick={props.onClick} />
-  );
+const randNum = () => Math.floor(Math.random() * 78) + 1;
+
+class Image extends React.Component {
+
+  render() {
+
+    // return this.state.cards.map(card => <div className="row" onClick={() => this.handleClick(card.id)} key={card.id}>
+    return (
+      <div>
+        <img onClick={this.props.onClick}
+          // className="col-md-3"
+          width="100"
+          height="150"
+          src={this.props.src}
+          style={{ opacity: this.props.opacity }}
+        />
+        {/* {card.clicked.toString()} */}
+      </div>
+    )
+
+  }
+
 }
 
 class Board extends React.Component {
@@ -38,25 +123,93 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      cards: [
+        {
+          id: 0,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 1,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 2,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 3,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 4,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 5,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 6,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 7,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 8,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        }
+      ]
     };
   }
 
-  handleClick(i) {
+  handleClick = (id) => {
     const squares = this.state.squares;
-    if (calculateWinner(squares) || squares[i]) {
+    if (calculateWinner(squares) || squares[id]) {
       return;
     }
-    squares[i] = 'X';
+    squares[id] = 'X';
+    console.log(id + ": " + squares);
+    const newCards = this.state.cards.map(card => {
+      if (card.id === id) {
+        return Object.assign({}, card, { opacity: .5, clicked: true })
+      }
+
+      return card;
+    })
+
     this.setState({
-      squares: squares,
+      cards: newCards,
+      squares: squares
     });
   }
 
-  renderSquare(i) {  
+
+  renderSquare(card) {
     return (
-      <Square
-        value={this.state.squares[i]}
-        onClick={() => this.handleClick(i)}
+      <Image
+        onClick={() => this.handleClick(card.id)}
+        src={card.src}
+        opacity={card.opacity}
       />
     );
   }
@@ -72,19 +225,19 @@ class Board extends React.Component {
       <div>
         <div className="status">{status}</div>
         <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
+          {this.renderSquare(this.state.cards[0])}
+          {this.renderSquare(this.state.cards[1])}
+          {this.renderSquare(this.state.cards[2])}
         </div>
         <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
+          {this.renderSquare(this.state.cards[3])}
+          {this.renderSquare(this.state.cards[4])}
+          {this.renderSquare(this.state.cards[5])}
         </div>
         <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
+          {this.renderSquare(this.state.cards[6])}
+          {this.renderSquare(this.state.cards[7])}
+          {this.renderSquare(this.state.cards[8])}
         </div>
       </div>
     );
