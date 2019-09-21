@@ -1,8 +1,19 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+// import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+
 
 import "./login.css";
+import { flexbox } from "@material-ui/system";
 
  class login extends Component {
   constructor(props) {
@@ -14,6 +25,7 @@ import "./login.css";
       password: ""
     };
   }
+  
 
   validateForm() {
     return this.state.username.length > 0 && this.state.email.length > 0 && this.state.password.length > 0;
@@ -30,100 +42,66 @@ import "./login.css";
   }
 
   render() {
+    console.log(this.state);
+    
     return (
-      <div className="login">
+    <div className="login">
+        <Card className= "classes-card" className="main-back">
+          <CardContent >
+      <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm" >
+        <Typography component="div" style={{ opacity: 0.9, backgroundColor: '#ffffcc', height: '360px' }} >
+        <form noValidate autoComplete="off" onSubmit={this.handleSubmit} className="content" style={{ display: "flex", flexDirection: "column", width:"275px", margin: 'auto'}}>
         <Link to="/">Back to Game</Link>
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="username" bsSize="large">
-            <FormLabel>Username</FormLabel>
-            <FormControl 
-              type="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-              />
-          </FormGroup>
-          <FormGroup controlId="email" bsSize="large">
-            <FormLabel>Email</FormLabel>
-            <FormControl
-              autoFocus
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
-            <FormLabel>Password</FormLabel>
-            <FormControl
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
-            />
-          </FormGroup>
-          <Button
+      <TextField
+        type="username"
+        id="username"
+        label="Username"
+        margin="normal"
+        value={this.state.username}
+        onChange={this.handleChange}
+      />
+      <TextField
+        type="email"
+        id="email"
+        label="Email"
+        margin="normal"
+        value={this.state.email}
+        onChange={this.handleChange}
+        />
+      <TextField
+        id="password"
+        controlId="password"
+        label="Password"
+        type="password"
+        margin="normal"
+        value={this.state.password}
+        onChange={this.handleChange}
+
+      />
+      <CardActions>
+        <Button
             block
             bsSize="large"
+            color="secondary"
             disabled={!this.validateForm()}
-            type="submit"
-          >
+            type="submit">
             login
-          </Button>
-        </form>
+        </Button>
+      </CardActions>
+
+      </form>
+      </Typography>
+      </Container>
+        </React.Fragment>
+      </CardContent>
+        </Card>
       </div>
+      
     );
   }
 }
 
+
 export default login;
-
-
-
-// import React from 'react';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-// // maybe add a button
-
-
-
-// class login extends React.Component {
-//   state = {
-//     email: '',
-//     username: '',
-//     password: '',
-//   }
-
-//   render() {
-//       return(
-          // <div>
-          //     <Link to="/">Back to Game</Link>
-          //   <form>
-          //     <input
-          //       name = 'username'
-          //       placeholder = 'username' />
-
-          //   <input
-          //       name = 'email'
-          //       placeholder = 'email' />
-
-
-          //    <input 
-          //       name = 'password'
-          //       type = 'password'
-          //       placeholder = 'password' />
-        
-          //       <button onClick={() => this.onSubmit()} type="primary">Submit</button>
-          //     </form>
-              
-          //   </div>
-
-//       )
-//   }  
-// }
-
-
-  
-       
-    
-
-
-
-// export default login;
