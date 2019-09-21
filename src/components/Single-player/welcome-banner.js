@@ -3,10 +3,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import "./single-player.css";
 
 const useStyles = makeStyles({
   card: {
-    minWidth: 275
+    minWidth: 275,
+    maxWidth: 800,
+    display: "flex",
+    justifyContent: "center"
   },
   bullet: {
     display: "inline-block",
@@ -26,7 +30,7 @@ export default function WelcomeBanner() {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.card}>
+    <Card className={`${classes.card} banner`}>
       <CardContent>
         <Typography
           className={classes.title}

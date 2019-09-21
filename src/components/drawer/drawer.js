@@ -16,19 +16,45 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import MailIcon from "@material-ui/icons/Mail";
 import PersonIcon from "@material-ui/icons/Person";
 import PeopleIcon from "@material-ui/icons/People";
-import CollectionsIcon from "@material-ui/icons/PanTool";
-import ReadingsIcon from "@material-ui/icons/Brightness4";
+import ReadingsIcon from "@material-ui/icons/PanTool";
+import CollectionsIcon from "@material-ui/icons/Brightness4";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 //Other Components imports
-import Game from "../Bingo-Card/card";
 import AccountIcon from "../AccountIcon";
 import "./drawer.css";
-import SinglePlayer from "../Single-player/singleplayer";
+import Singleplayer from "../Single-player/singleplayer";
+import Multiplayer from "../Multiplayer/multiplayer";
+import Readings from "../Previous Readings/readings";
+import Collections from "../Collections/collections";
+import Game from "../Bingo-Card/card";
 
 const drawerWidth = 240;
+
+const routes = [
+  {
+    path: "/dashboard",
+    exact: true,
+    main: () => <Singleplayer />
+  },
+  {
+    path: "/multiplayer",
+    exact: true,
+    main: () => <Multiplayer />
+  },
+  {
+    path: "/readings",
+    exact: true,
+    main: () => <ReadingsIcon />
+  },
+  {
+    path: "/collections",
+    exact: true,
+    main: () => <Collections />
+  }
+];
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -104,21 +130,6 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  function icon(i) {
-    switch (i) {
-      case 0:
-        return <PersonIcon />;
-      case 1:
-        return <PeopleIcon />;
-      case 2:
-        return <ReadingsIcon />;
-      case 3:
-        return <CollectionsIcon />;
-      default:
-        return <PersonIcon />;
-    }
-  }
-
   function handleDrawerOpen() {
     setOpen(true);
   }
@@ -183,22 +194,41 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          {[
-            "Single-player Game",
-            "Multiplayer Game",
-            "Previous Readings",
-            "Collections"
-          ].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{icon(index)}</ListItemIcon>
-              <ListItemText primary={text} />
+          <Router>
+            <ListItem button key="Single-player Game">
+              {/* <Link to="/dashboard"> */}
+              <ListItemIcon>
+                <PersonIcon />
+              </ListItemIcon>
+              <ListItemText primary="Single-player Game" />
+              {/* </Link> */}
             </ListItem>
-          ))}
+            <ListItem button key="Multiplayer Game">
+              <Link to="/multiplayer">
+                <ListItemIcon>
+                  <PeopleIcon />
+                </ListItemIcon>
+              </Link>
+              <ListItemText primary="Multiplayer Game" />
+            </ListItem>
+            <ListItem button key="Previous Readings">
+              <ListItemIcon>
+                <ReadingsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Previous Readings" />
+            </ListItem>
+            <ListItem button key="Collections">
+              <ListItemIcon>
+                <CollectionsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Collections" />
+            </ListItem>
+          </Router>
         </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <SinglePlayer />
+        <Singleplayer />
       </main>
     </div>
   );

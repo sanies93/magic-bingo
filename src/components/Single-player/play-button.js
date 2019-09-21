@@ -1,17 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Fab from "@material-ui/core/Fab";
 import NavigationIcon from "@material-ui/icons/Navigation";
-import { ThemeProvider } from "@material-ui/styles";
-import { positions, fontWeight } from "@material-ui/system";
+import "./single-player.css";
 
 const useStyles = makeStyles(theme => ({
-  card: {
-    minWidth: 275,
-    marginTop: 12
-  },
   root: {
     justifyContent: "center"
   },
@@ -39,18 +33,16 @@ export default function PlayButton() {
   const classes = useStyles();
 
   return (
-    // <Card className={classes.card}>
     <CardActions className={classes.root}>
       <Fab
         // variant="extended"
         aria-label="delete"
-        className={classes.fab}
+        className={`${classes.fab} button-background`}
         color="secondary"
       >
         <NavigationIcon className={classes.extendedIcon} />
         Start Game
       </Fab>
     </CardActions>
-    // </Card>
   );
 }
