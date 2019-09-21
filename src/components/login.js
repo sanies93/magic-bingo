@@ -51,8 +51,8 @@ import { flexbox } from "@material-ui/system";
       <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm" >
-        <Typography component="div" style={{ opacity: 0.9, backgroundColor: '#ffffcc', height: '360px' }} >
-        <form noValidate autoComplete="off" onSubmit={this.handleSubmit} className="content" style={{ display: "flex", flexDirection: "column", width:"275px", margin: 'auto'}}>
+        <Typography component="div" style={{ opacity: 0.9, backgroundColor: '#ffffcc', height: '530px', borderRadius: "480px" }} >
+        <form noValidate autoComplete="off" onSubmit={this.handleSubmit} className="content" style={{display: "flex", flexDirection: "column", width:"275px", margin: 'auto'}}>
         <Link to="/">Back to Game</Link>
       <TextField
         type="username"
