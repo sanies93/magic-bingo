@@ -8,10 +8,11 @@ ul {
   padding-left: 30px;
 }
 
-.board-row:after {
+.board-row {
+  display: flex;
+  flex-direction: row;
   clear: both;
   content: "";
-  display: table;
 }
 
 .status {
