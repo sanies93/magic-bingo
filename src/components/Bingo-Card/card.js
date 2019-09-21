@@ -94,7 +94,20 @@ dict.image78 = "../images/Tarot/suitOfWands/twoOfWands.jpg";
 //     imgArray.push(dict["image" + randNum]);
 // }
 
-const randNum = () => Math.floor(Math.random() * 78) + 1;
+const randNumGen = [];
+
+const randNum = () => {
+  const newNum = Math.floor(Math.random() * 78) + 1;
+
+  if (!randNumGen.includes(newNum)) {
+    console.log(randNumGen);
+    randNumGen.push(newNum);
+    return newNum;
+ 
+   } else {
+    return randNum();
+   }
+}
 
 class Image extends React.Component {
 
@@ -177,6 +190,48 @@ class Board extends React.Component {
           src: dict["image" + randNum()],
           opacity: 1,
           clicked: false
+        },
+        {
+          id: 9,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 10,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 11,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 12,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 13,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 14,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
+        },
+        {
+          id: 15,
+          src: dict["image" + randNum()],
+          opacity: 1,
+          clicked: false
         }
       ]
     };
@@ -238,16 +293,25 @@ class Board extends React.Component {
           {this.renderSquare(this.state.cards[0])}
           {this.renderSquare(this.state.cards[1])}
           {this.renderSquare(this.state.cards[2])}
+          {this.renderSquare(this.state.cards[3])}
         </div>
         <div className="board-row">
-          {this.renderSquare(this.state.cards[3])}
           {this.renderSquare(this.state.cards[4])}
           {this.renderSquare(this.state.cards[5])}
-        </div>
-        <div className="board-row">
           {this.renderSquare(this.state.cards[6])}
           {this.renderSquare(this.state.cards[7])}
+        </div>
+        <div className="board-row">
           {this.renderSquare(this.state.cards[8])}
+          {this.renderSquare(this.state.cards[9])}
+          {this.renderSquare(this.state.cards[10])}
+          {this.renderSquare(this.state.cards[11])}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(this.state.cards[12])}
+          {this.renderSquare(this.state.cards[13])}
+          {this.renderSquare(this.state.cards[14])}
+          {this.renderSquare(this.state.cards[15])}
         </div>
       </div>
     );
@@ -273,18 +337,20 @@ export default class Game extends React.Component {
 
 function calculateWinner(squares) {
   const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+    [0, 4, 8, 12],
+    [1, 5, 9, 13],
+    [2, 6, 10, 14],
+    [3, 7, 11, 15],
+    [0, 5, 10, 15],
+    [3, 6, 9, 12],
   ];
   for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+    const [a, b, c, d] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c] && squares[a] === squares[d]) {
       return squares[a];
     }
   }
