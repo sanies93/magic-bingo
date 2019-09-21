@@ -37,22 +37,38 @@ const routes = [
   {
     path: "/dashboard",
     exact: true,
-    main: () => <Singleplayer />
+    main: () => (
+      <div>
+        <Singleplayer />
+      </div>
+    )
   },
   {
     path: "/multiplayer",
     exact: true,
-    main: () => <Multiplayer />
+    main: () => (
+      <div>
+        <Multiplayer />
+      </div>
+    )
   },
   {
     path: "/readings",
     exact: true,
-    main: () => <ReadingsIcon />
+    main: () => (
+      <div>
+        <Readings />
+      </div>
+    )
   },
   {
     path: "/collections",
     exact: true,
-    main: () => <Collections />
+    main: () => (
+      <div>
+        <Collections />
+      </div>
+    )
   }
 ];
 
@@ -169,67 +185,82 @@ export default function MiniDrawer() {
           </div>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open
-        })}
-        classes={{
-          paper: clsx({
+      <Router>
+        <Drawer
+          variant="permanent"
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open
-          })
-        }}
-        open={open}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          <Router>
-            <ListItem button key="Single-player Game">
-              {/* <Link to="/dashboard"> */}
-              <ListItemIcon>
-                <PersonIcon />
-              </ListItemIcon>
-              <ListItemText primary="Single-player Game" />
-              {/* </Link> */}
-            </ListItem>
-            <ListItem button key="Multiplayer Game">
-              <Link to="/multiplayer">
+          })}
+          classes={{
+            paper: clsx({
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open
+            })
+          }}
+          open={open}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </div>
+          <Divider />
+          <List>
+            {/* <Router> */}
+            <Link to="/dashboard">
+              <ListItem button key="Single-player Game">
+                <ListItemIcon>
+                  <PersonIcon />
+                </ListItemIcon>
+                <ListItemText primary="Single-player Game" />
+              </ListItem>
+            </Link>
+            <Link to="/multiplayer">
+              <ListItem button key="Multiplayer Game">
                 <ListItemIcon>
                   <PeopleIcon />
                 </ListItemIcon>
-              </Link>
-              <ListItemText primary="Multiplayer Game" />
-            </ListItem>
-            <ListItem button key="Previous Readings">
-              <ListItemIcon>
-                <ReadingsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Previous Readings" />
-            </ListItem>
-            <ListItem button key="Collections">
-              <ListItemIcon>
-                <CollectionsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Collections" />
-            </ListItem>
-          </Router>
-        </List>
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Singleplayer />
-      </main>
+                <ListItemText primary="Multiplayer Game" />
+              </ListItem>
+            </Link>
+            <Link to="/readings">
+              <ListItem button key="Previous Readings">
+                <ListItemIcon>
+                  <ReadingsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Previous Readings" />
+              </ListItem>
+            </Link>
+            <Link to="/collections">
+              <ListItem button key="Collections">
+                <ListItemIcon>
+                  <CollectionsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Collections" />
+              </ListItem>
+            </Link>
+            {/* </Router> */}
+          </List>
+        </Drawer>
+        <main className={classes.content}>
+          <div>
+            {routes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                component={route.main}
+              />
+            ))}
+          </div>
+          {/* <Singleplayer /> */}
+        </main>
+      </Router>
     </div>
   );
 }

@@ -9,6 +9,7 @@ function App() {
       <Route path="/dashboard" exact component={MiniDrawer} />
       <Route path="/" exact component={Login} />
     </Router>
+    // <MiniDrawer />
   );
 }
 

@@ -37,7 +37,7 @@ export default function PlayButton() {
       <Fab
         // variant="extended"
         aria-label="delete"
-        className={`${classes.fab} button-background`}
+        className={`${classes.fab} button-background-2`}
         color="secondary"
       >
         <NavigationIcon className={classes.extendedIcon} />
