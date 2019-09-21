@@ -1,5 +1,4 @@
-import React from "react";
-import { directive } from "@babel/types";
+
 
 // Add images to dictionary
 const dict = {};
@@ -135,7 +134,7 @@ class Image extends React.Component {
 
         return this.state.cards.map(card => <div className="row" onClick={() => this.handlePress(card.id)} key={card.id}>
             <img onClick={this.props.onClick}
-                className="col-4"
+                className="col-md-3"
                 width="100"
                 height="150"
                 src={card.src}
@@ -144,16 +143,7 @@ class Image extends React.Component {
             {card.clicked.toString()}
         </div>)
 
-        // return (
-        // <img onClick={this.props.onClick}
-        //     width="100"
-        //     height="150"
-        //     src={dict["image" + randNum]}
-        //     style={{ opacity: this.state.opacity }}
-        //     onPress={this.handlePress} />
-        // )
     }
 }
 
-export default Image;
 
