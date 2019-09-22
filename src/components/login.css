@@ -1,8 +1,14 @@
 @media all and (min-width: 480px) {
+  html {
+    width: 100%;
+    height: 100%;
+    background: url("./heart.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .Login {
     padding: 60px 0;
   }
-
   .classes-card {
     max-width: 320px;
     max-height: 1400px;
@@ -18,11 +24,11 @@
     align-items: center;
   }
 
-  .content {
+  /* .content {
     align-self: center;
-    /* width: 360px;
-    height: 400px; */
-  }
+    width: 360px;
+    height: 400px;
+  } */
 
   .Login form {
     margin: 0 auto;
@@ -34,7 +40,6 @@
   .root {
     padding: 100;
   }
-
   /* .container {
       display: 'flex',
     } */
