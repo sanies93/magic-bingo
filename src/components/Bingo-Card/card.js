@@ -1,7 +1,6 @@
 import React from "react";
 import "./card.css";
 
-// const intervalId;
 // Add images to dictionary
 const dict = {};
 
@@ -91,6 +90,8 @@ dict.image78 = "../images/Tarot/suitOfWands/twoOfWands.jpg";
 const imageArray = [];
 const randNumGen = [];
 
+let status;
+
 const randImg = () => {
   const newNum = Math.floor(Math.random() * 78) + 1;
 
@@ -142,82 +143,82 @@ class Board extends React.Component {
       cards: [
         {
           id: 0,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 1,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 2,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 3,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 4,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 5,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 6,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 7,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 8,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 9,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 10,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 11,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 12,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 13,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 14,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         },
         {
           id: 15,
-          src: dict["image" + randNum()],
+          key: randNum(),
           opacity: 1
         }
       ]
@@ -225,24 +226,31 @@ class Board extends React.Component {
   }
 
   handleClick = (id) => {
-    const squares = this.state.squares;
-    if (calculateWinner(squares) || squares[id]) {
-      return;
-    }
-    squares[id] = 'X';
-    console.log(id + ": " + squares);
-    const newCards = this.state.cards.map(card => {
-      if (card.id === id) {
-        return Object.assign({}, card, { opacity: .5 })
+    const clickedCard = this.state.cards.filter(c => c.id === id)[0];
+
+    console.log(clickedCard);
+    
+    if (imageArray.includes(clickedCard.key)) {
+      console.log("Numbers: " + randNumGen);
+      const squares = this.state.squares;
+      if (calculateWinner(squares) || squares[id]) {
+        return;
       }
+      squares[id] = 'X';
+      console.log(id + ": " + squares);
+      const newCards = this.state.cards.map(card => {
+        if (card.id === id) {
+          return Object.assign({}, card, { opacity: .5 })
+        }
 
-      return card;
-    })
+        return card;
+      })
 
-    this.setState({
-      cards: newCards,
-      squares: squares
-    });
+      this.setState({
+        cards: newCards,
+        squares: squares
+      });
+    }
   }
 
 
@@ -250,7 +258,7 @@ class Board extends React.Component {
     return (
       <Image
         onClick={() => this.handleClick(card.id)}
-        src={card.src}
+        src={dict["image" + (card.key)]}
         opacity={card.opacity}
       />
     );
@@ -259,7 +267,7 @@ class Board extends React.Component {
   render() {
 
     const winner = calculateWinner(this.state.squares);
-    let status;
+    // let status;
     if (winner) {
       status = 'You win!';
     }
@@ -309,6 +317,10 @@ class Caller extends React.Component {
 
   componentDidMount() {
     setInterval(() => {
+      console.log("Images: " + imageArray);
+      if (status) {
+        return;
+      }
       this.setState({
         caller: {
           src: dict["image" + randImg()],
