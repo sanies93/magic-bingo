@@ -1,6 +1,7 @@
 import React from "react";
 import "./card.css";
 
+// const intervalId;
 // Add images to dictionary
 const dict = {};
 
@@ -87,43 +88,45 @@ dict.image76 = "../images/Tarot/suitOfWands/tenOfWands.jpg";
 dict.image77 = "../images/Tarot/suitOfWands/threeOfWands.jpg";
 dict.image78 = "../images/Tarot/suitOfWands/twoOfWands.jpg";
 
-// var imgArray = [];
-
-// for (let i=0; i<9; i++) {
-//     const randNum = Math.floor(Math.random() * 78) + 1;
-//     imgArray.push(dict["image" + randNum]);
-// }
-
+const imageArray = [];
 const randNumGen = [];
+
+const randImg = () => {
+  const newNum = Math.floor(Math.random() * 78) + 1;
+
+  if (!imageArray.includes(newNum)) {
+    imageArray.push(newNum);
+    return newNum;
+
+  } else {
+    return randImg();
+  }
+}
 
 const randNum = () => {
   const newNum = Math.floor(Math.random() * 78) + 1;
 
   if (!randNumGen.includes(newNum)) {
-    console.log(randNumGen);
     randNumGen.push(newNum);
     return newNum;
- 
-   } else {
+
+  } else {
     return randNum();
-   }
+  }
 }
 
 class Image extends React.Component {
 
   render() {
 
-    // return this.state.cards.map(card => <div className="row" onClick={() => this.handleClick(card.id)} key={card.id}>
     return (
       <div>
         <img onClick={this.props.onClick}
-          // className="col-md-3"
           width="100"
           height="150"
           src={this.props.src}
           style={{ opacity: this.props.opacity }}
         />
-        {/* {card.clicked.toString()} */}
       </div>
     )
 
@@ -140,98 +143,82 @@ class Board extends React.Component {
         {
           id: 0,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 1,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 2,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 3,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 4,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 5,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 6,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 7,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 8,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 9,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 10,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 11,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 12,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 13,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 14,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         },
         {
           id: 15,
           src: dict["image" + randNum()],
-          opacity: 1,
-          clicked: false
+          opacity: 1
         }
       ]
     };
@@ -246,7 +233,7 @@ class Board extends React.Component {
     console.log(id + ": " + squares);
     const newCards = this.state.cards.map(card => {
       if (card.id === id) {
-        return Object.assign({}, card, { opacity: .5, clicked: true })
+        return Object.assign({}, card, { opacity: .5 })
       }
 
       return card;
@@ -270,6 +257,7 @@ class Board extends React.Component {
   }
 
   render() {
+
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
@@ -308,10 +296,43 @@ class Board extends React.Component {
   }
 }
 
+class Caller extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      caller: {
+        src: dict["image" + randImg()],
+        opacity: 1
+      }
+    }
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        caller: {
+          src: dict["image" + randImg()],
+          opacity: 1
+        }
+      })
+    }, 5000);
+  }
+
+  render() {
+    return <Image
+      src={this.state.caller.src}
+      opacity={this.state.caller.opacity} />;
+  }
+}
+
 export default class Game extends React.Component {
+  randNumGen = [];
   render() {
     return (
       <div className="game">
+        <div className="game-caller">
+          <Caller />
+        </div>
         <div className="game-board">
           <Board />
         </div>
