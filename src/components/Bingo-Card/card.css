@@ -17,6 +17,7 @@ ul {
 
 .status {
   margin-bottom: 10px;
+  color: white;
 }
 
 .square {
@@ -43,10 +44,23 @@ ul {
 }
 
 .game {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
+  margin-top: 5%;
 }
 
 .game-info {
   margin-left: 20px;
+}
+
+.game-caller {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
