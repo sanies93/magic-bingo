@@ -1,5 +1,5 @@
 import React from "react";
-import MiniDrawer from "./components/drawer";
+import MiniDrawer from "./components/Drawer/drawer";
 import Login from "./components/Login/login";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Game from "./components/Game/game";
