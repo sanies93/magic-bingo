@@ -12,7 +12,7 @@ import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 
 import "./login.css";
-import db from "../"
+// import db from "../"
 import { flexbox } from "@material-ui/system";
 
 class login extends Component {
@@ -45,18 +45,21 @@ class login extends Component {
   };
 
   render() {
-    console.log(this.state); 
+    console.log(this.state);
 
     return (
       <div className="login">
-        <Card className="classes-card" className="main-back"
-        style={{
-          opacity: 0.9,
-          backgroundColor: "#ffffcc",
-          borderRadius: "300px",
-          width: "600px",
-          height: "600px"
-        }}> 
+        <Card
+          className="classes-card"
+          className="main-back"
+          style={{
+            opacity: 0.9,
+            backgroundColor: "#ffffcc",
+            borderRadius: "300px",
+            width: "600px",
+            height: "600px"
+          }}
+        >
           <CardContent>
             <React.Fragment>
               <CssBaseline />
@@ -64,7 +67,6 @@ class login extends Component {
                 <Typography
                   component="div"
                   style={{
-                  
                     opacity: 0.9,
                     backgroundColor: "#ffffcc",
                     height: "600px",
