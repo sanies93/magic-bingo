@@ -99,11 +99,10 @@ const randImg = () => {
   if (!imageArray.includes(newNum)) {
     imageArray.push(newNum);
     return newNum;
-
   } else {
     return randImg();
   }
-}
+};
 
 const randNum = () => {
   const newNum = Math.floor(Math.random() * 78) + 1;
@@ -111,16 +110,13 @@ const randNum = () => {
   if (!randNumGen.includes(newNum)) {
     randNumGen.push(newNum);
     return newNum;
-
   } else {
     return randNum();
   }
-}
+};
 
 class Image extends React.Component {
-
   render() {
-
     return (
       <div>
         <img onClick={this.props.onClick}
@@ -130,10 +126,8 @@ class Image extends React.Component {
           style={{ opacity: this.props.opacity }}
         />
       </div>
-    )
-
+    );
   }
-
 }
 
 class Board extends React.Component {
@@ -228,7 +222,7 @@ class Board extends React.Component {
     };
   }
 
-  handleClick = (id) => {
+  handleClick = id => {
     const clickedCard = this.state.cards.filter(c => c.id === id)[0];
 
     console.log(clickedCard);
@@ -239,23 +233,22 @@ class Board extends React.Component {
       if (calculateWinner(squares) || squares[id]) {
         return;
       }
-      squares[id] = 'X';
+      squares[id] = "X";
       console.log(id + ": " + squares);
       const newCards = this.state.cards.map(card => {
         if (card.id === id) {
-          return Object.assign({}, card, { opacity: .5 })
+          return Object.assign({}, card, { opacity: 0.5 });
         }
 
         return card;
-      })
+      });
 
       this.setState({
         cards: newCards,
         squares: squares
       });
     }
-  }
-
+  };
 
   renderSquare(card) {
     return (
@@ -270,11 +263,10 @@ class Board extends React.Component {
   }
 
   render() {
-
     const winner = calculateWinner(this.state.squares);
     // let status;
     if (winner) {
-      status = 'You win!';
+      status = "You win!";
     }
 
     return (
@@ -319,7 +311,7 @@ class Caller extends React.Component {
         src: dict["image" + randImg()],
         opacity: 1
       }
-    }
+    };
   }
 
   componentDidMount() {
@@ -333,8 +325,8 @@ class Caller extends React.Component {
           src: dict["image" + randImg()],
           opacity: 1
         }
-      })
-    }, 5000);
+      });
+    }, 4000);
   }
 
   render() {
@@ -378,11 +370,16 @@ function calculateWinner(squares) {
     [2, 6, 10, 14],
     [3, 7, 11, 15],
     [0, 5, 10, 15],
-    [3, 6, 9, 12],
+    [3, 6, 9, 12]
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c, d] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c] && squares[a] === squares[d]) {
+    if (
+      squares[a] &&
+      squares[a] === squares[b] &&
+      squares[a] === squares[c] &&
+      squares[a] === squares[d]
+    ) {
       return squares[a];
     }
   }
