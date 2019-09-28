@@ -16,12 +16,14 @@
 
   /* .MuiCardContent-root  */
   .login {
-    width: 400px;
-    height: 960px;
+    width: 100vw;  
+    height: 100vh;
     background-image: url("./heart.webp");
-    background-size: contain;
+    background-size: cover;
     display: flex;
     align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   /* .content {
@@ -36,6 +38,8 @@
   }
   .main-back {
     max-height: 1400px;
+    margin: auto;
+    border-radius: 120px;
   }
   .root {
     padding: 100;

@@ -7,6 +7,7 @@ function App() {
   return (
     <Router>
       <Route path="/" exact component={MiniDrawer} />
+      <Route path="/login" exact component={Login}/>
       {/* <Route path="/" exact component={Login} /> */}
     </Router>
     // <MiniDrawer />

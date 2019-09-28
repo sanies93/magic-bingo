@@ -12,6 +12,7 @@ import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 
 import "./login.css";
+import db from "../"
 import { flexbox } from "@material-ui/system";
 
 class login extends Component {
@@ -44,11 +45,18 @@ class login extends Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state); 
 
     return (
       <div className="login">
-        <Card className="classes-card" className="main-back">
+        <Card className="classes-card" className="main-back"
+        style={{
+          opacity: 0.9,
+          backgroundColor: "#ffffcc",
+          borderRadius: "300px",
+          width: "600px",
+          height: "600px"
+        }}> 
           <CardContent>
             <React.Fragment>
               <CssBaseline />
@@ -56,9 +64,11 @@ class login extends Component {
                 <Typography
                   component="div"
                   style={{
+                  
                     opacity: 0.9,
                     backgroundColor: "#ffffcc",
-                    height: "360px"
+                    height: "600px",
+                    paddingTop: "120px"
                   }}
                 >
                   <form
@@ -73,7 +83,7 @@ class login extends Component {
                       margin: "auto"
                     }}
                   >
-                    <Link to="/">Back to Game</Link>
+                    {/* <Link to="/">Back to Game</Link> */}
                     <TextField
                       type="username"
                       id="username"
@@ -100,15 +110,18 @@ class login extends Component {
                       onChange={this.handleChange}
                     />
                     <CardActions>
+                      {/* <Link to="/"> */}
                       <Button
                         block
                         bsSize="large"
                         color="secondary"
                         disabled={!this.validateForm()}
                         type="submit"
+                        onClick={this.handleSubmit}
                       >
                         login
                       </Button>
+                      {/* </Link> */}
                     </CardActions>
                   </form>
                 </Typography>
