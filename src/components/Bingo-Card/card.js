@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "@material-ui/core/Card";
 import "./card.css";
 
 // Add images to dictionary
@@ -118,10 +119,9 @@ class Image extends React.Component {
   render() {
     return (
       <div>
-        <img
-          onClick={this.props.onClick}
-          width="100"
-          height="150"
+        <img onClick={this.props.onClick}
+          width={this.props.width}
+          height={this.props.height}
           src={this.props.src}
           style={{ opacity: this.props.opacity }}
         />
@@ -135,6 +135,8 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      width: "100",
+      height: "150",
       cards: [
         {
           id: 0,
@@ -252,7 +254,9 @@ class Board extends React.Component {
     return (
       <Image
         onClick={() => this.handleClick(card.id)}
-        src={dict["image" + card.key]}
+        width={this.state.width}
+        height={this.state.height}
+        src={dict["image" + (card.key)]}
         opacity={card.opacity}
       />
     );
@@ -301,6 +305,8 @@ class Caller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      width: "200",
+      height: "300",
       caller: {
         src: dict["image" + randImg()],
         opacity: 1
@@ -324,9 +330,11 @@ class Caller extends React.Component {
   }
 
   render() {
-    return (
-      <Image src={this.state.caller.src} opacity={this.state.caller.opacity} />
-    );
+    return <Image
+      width={this.state.width}
+      height={this.state.height}
+      src={this.state.caller.src}
+      opacity={this.state.caller.opacity} />;
   }
 }
 
@@ -342,7 +350,7 @@ export default class Game extends React.Component {
           <Board />
         </div>
         <div className="game-info">
-          <div>{/* status */}</div>
+          {/* <Card body>{reading.Judgement}</Card> */}
         </div>
       </div>
     );

@@ -3,8 +3,7 @@ body {
   margin: 20px;
 }
 
-ol,
-ul {
+ol, ul {
   padding-left: 30px;
 }
 
@@ -44,23 +43,12 @@ ul {
 }
 
 .game {
-  /* display: flex;
-  flex-direction: row; */
   margin-top: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .game-info {
-  margin-left: 20px;
-}
-
-.game-caller {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.game-board {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 400px;
 }
