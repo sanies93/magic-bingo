@@ -88,11 +88,12 @@ dict.image76 = "../images/Tarot/suitOfWands/tenOfWands.jpg";
 dict.image77 = "../images/Tarot/suitOfWands/threeOfWands.jpg";
 dict.image78 = "../images/Tarot/suitOfWands/twoOfWands.jpg";
 
-const imageArray = [];
-const randNumGen = [];
+const imageArray = []; // Holds all unique keys associated to images to ensure no repeats in 4x4 board
+const randNumGen = []; // Holds all unique keys associated to images to ensure no repeats in caller for each of the 78 cards
 
 let status;
 
+// Generate randum number for imageArray
 const randImg = () => {
   const newNum = Math.floor(Math.random() * 78) + 1;
 
@@ -104,6 +105,7 @@ const randImg = () => {
   }
 };
 
+// Generate randum number for randNumGen
 const randNum = () => {
   const newNum = Math.floor(Math.random() * 78) + 1;
 
@@ -115,6 +117,7 @@ const randNum = () => {
   }
 };
 
+// Image component renders an image with specific properties
 class Image extends React.Component {
   render() {
     return (
@@ -130,6 +133,45 @@ class Image extends React.Component {
   }
 }
 
+// Caller component renders a new image every few seconds
+class Caller extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: "200",
+      height: "300",
+      caller: {
+        src: dict["image" + randImg()],
+        opacity: 1
+      }
+    };
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      console.log("Images: " + imageArray);
+      if (status) { // stop if game won 
+        return;
+      }
+      this.setState({
+        caller: {
+          src: dict["image" + randImg()],
+          opacity: 1
+        }
+      });
+    }, 1000);
+  }
+
+  render() {
+    return <Image
+      width={this.state.width}
+      height={this.state.height}
+      src={this.state.caller.src}
+      opacity={this.state.caller.opacity} />;
+  }
+}
+
+// Board component renders a 4x4
 class Board extends React.Component {
   constructor(props) {
     super(props);
@@ -140,7 +182,7 @@ class Board extends React.Component {
       cards: [
         {
           id: 0,
-          key: randNum(),
+          key: randNum(), // Unique keys for each of the 16 images used in Board
           opacity: 1
         },
         {
@@ -222,9 +264,10 @@ class Board extends React.Component {
     };
   }
 
+  // Change opacity on a clicked card only if the card has been called in the Caller component
   handleClick = id => {
+    // filters the clicked card to grab the associated key
     const clickedCard = this.state.cards.filter(c => c.id === id)[0];
-
     console.log(clickedCard);
 
     if (imageArray.includes(clickedCard.key)) {
@@ -264,7 +307,6 @@ class Board extends React.Component {
 
   render() {
     const winner = calculateWinner(this.state.squares);
-    // let status;
     if (winner) {
       status = "You win!";
     }
@@ -301,43 +343,30 @@ class Board extends React.Component {
   }
 }
 
-class Caller extends React.Component {
+// Reading component renders a string from the reading dictionary
+class Reading extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: "200",
-      height: "300",
-      caller: {
-        src: dict["image" + randImg()],
-        opacity: 1
-      }
-    };
+      future: "Your future awaits..."
+    }
   }
 
+  c
   componentDidMount() {
-    setInterval(() => {
-      console.log("Images: " + imageArray);
-      if (status) {
-        return;
-      }
+    if (true) {
       this.setState({
-        caller: {
-          src: dict["image" + randImg()],
-          opacity: 1
-        }
-      });
-    }, 4000);
+        future: reading.Judgement
+      })
+    }
   }
 
   render() {
-    return <Image
-      width={this.state.width}
-      height={this.state.height}
-      src={this.state.caller.src}
-      opacity={this.state.caller.opacity} />;
+    return <Card body>{this.state.future}</Card>
   }
 }
 
+// Game component holds all the other components 
 export default class Game extends React.Component {
   randNumGen = [];
   render() {
@@ -350,7 +379,7 @@ export default class Game extends React.Component {
           <Board />
         </div>
         <div className="game-info">
-          {/* <Card body>{reading.Judgement}</Card> */}
+          <Reading />
         </div>
       </div>
     );
@@ -360,6 +389,7 @@ export default class Game extends React.Component {
 // ========================================
 
 function calculateWinner(squares) {
+  // all possible wins
   const lines = [
     [0, 1, 2, 3],
     [4, 5, 6, 7],
