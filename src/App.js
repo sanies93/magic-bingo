@@ -1,12 +1,14 @@
 import React from "react";
-import MiniDrawer from "./components/Drawer/drawer";
+import MiniDrawer from "./components/drawer/drawer";
 import Login from "./components/Login/login";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import Register from "./components/register/register";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Game from "./components/Game/game";
 
 function App() {
   return (
     <Router>
+      <Route path="/register" exact component={Register}/>
       <Route path="/dashboard" exact component={MiniDrawer} />
       <Route path="/" exact component={Login} />
       <Route path="/game" exact component={Game} />

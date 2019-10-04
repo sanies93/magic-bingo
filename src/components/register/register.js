@@ -11,11 +11,11 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 
-import "./login.css";
+import "../Login/login.css";
 // import db from "../"
 import { flexbox } from "@material-ui/system";
 
-class login extends Component {
+class register extends Component {
   constructor(props) {
     super(props);
 
@@ -29,6 +29,7 @@ class login extends Component {
   validateForm() {
     return (
       this.state.username.length > 0 &&
+      this.state.email.length > 0 &&
       this.state.password.length > 0
     );
   }
@@ -44,21 +45,20 @@ class login extends Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state); 
 
     return (
       <div className="login">
-        <Card
-          className="classes-card"
-          className="main-back"
-          style={{
-            opacity: 0.9,
-            backgroundColor: "#ffffcc",
-            borderRadius: "300px",
-            width: "600px",
-            height: "600px"
-          }}
-        >
+        <Card className="classes-card" className="main-back"
+        style={{
+          opacity: 0.9,
+          backgroundColor: "#ffffcc",
+          borderRadius: "300px",
+          width: "600px",
+          height: "600px"
+        }}> 
+
+        
           <CardContent>
             <React.Fragment>
               <CssBaseline />
@@ -66,6 +66,7 @@ class login extends Component {
                 <Typography
                   component="div"
                   style={{
+                  
                     opacity: 0.9,
                     backgroundColor: "#ffffcc",
                     height: "600px",
@@ -93,14 +94,14 @@ class login extends Component {
                       value={this.state.username}
                       onChange={this.handleChange}
                     />
-                    {/* <TextField
+                    <TextField
                       type="email"
                       id="email"
                       label="Email"
                       margin="normal"
                       value={this.state.email}
                       onChange={this.handleChange}
-                    /> */}
+                    />
                     <TextField
                       id="password"
                       controlId="password"
@@ -135,4 +136,4 @@ class login extends Component {
   }
 }
 
-export default login;
+export default register;

@@ -3,4 +3,4 @@
 module.exports = {
     User: require('./user.js'),
     Reading: require('./reading.js')
-};
+}; 
