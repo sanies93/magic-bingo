@@ -148,6 +148,7 @@ class Caller extends React.Component {
   }
 
   componentDidMount() {
+    
     setInterval(() => {
       console.log("Images: " + imageArray);
       if (status) { // stop if game won 
@@ -273,7 +274,8 @@ class Board extends React.Component {
     if (imageArray.includes(clickedCard.key)) {
       console.log("Numbers: " + randNumGen);
       const squares = this.state.squares;
-      if (calculateWinner(squares) || squares[id]) {
+      if (calculateWinner(squares)) {
+        this.props.updateFuture();
         return;
       }
       squares[id] = "X";
@@ -352,9 +354,10 @@ class Reading extends React.Component {
     }
   }
 
-  c
   componentDidMount() {
-    if (true) {
+    console.log("Status: " + status);
+    if (status==="You win!") {
+      console.log("Status: " + status);
       this.setState({
         future: reading.Judgement
       })
@@ -362,12 +365,25 @@ class Reading extends React.Component {
   }
 
   render() {
-    return <Card body>{this.state.future}</Card>
+    return <Card body>{this.props.future}</Card>
   }
 }
 
 // Game component holds all the other components 
 export default class Game extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      future: 'test'
+    }
+  }
+
+  updateFuture = () => {
+    this.setState({
+      future: 'New Future'
+    })
+  }
+
   randNumGen = [];
   render() {
     return (
@@ -376,10 +392,10 @@ export default class Game extends React.Component {
           <Caller />
         </div>
         <div className="game-board">
-          <Board />
+          <Board updateFuture={this.updateFuture}/>
         </div>
         <div className="game-info">
-          <Reading />
+          <Reading future={this.state.future}/>
         </div>
       </div>
     );
