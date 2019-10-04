@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
-// Create a new object
+// Create a new object 
 var ReadingSchema = new Schema({
     timestamp: {
         type: Date,
