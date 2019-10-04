@@ -274,10 +274,12 @@ class Board extends React.Component {
     if (imageArray.includes(clickedCard.key)) {
       console.log("Numbers: " + randNumGen);
       const squares = this.state.squares;
-      if (calculateWinner(squares)) {
-        this.props.updateFuture();
-        return;
-      }
+      // if (calculateWinner(squares)) {
+      //   console.log("Win");
+        
+      //   this.props.updateFuture();
+      //   return;
+      // }
       squares[id] = "X";
       console.log(id + ": " + squares);
       const newCards = this.state.cards.map(card => {
@@ -287,6 +289,15 @@ class Board extends React.Component {
 
         return card;
       });
+
+      if (calculateWinner(squares)) {
+        this.props.updateFuture();    
+        this.setState({
+          cards: newCards,
+          squares: squares
+        });
+        return;
+      }
 
       this.setState({
         cards: newCards,
@@ -347,22 +358,22 @@ class Board extends React.Component {
 
 // Reading component renders a string from the reading dictionary
 class Reading extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      future: "Your future awaits..."
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     future: "Your future awaits..."
+  //   }
+  // }
 
-  componentDidMount() {
-    console.log("Status: " + status);
-    if (status==="You win!") {
-      console.log("Status: " + status);
-      this.setState({
-        future: reading.Judgement
-      })
-    }
-  }
+  // componentDidMount() {
+  //   console.log("Status: " + status);
+  //   if (status==="You win!") {
+  //     console.log("Status: " + status);
+  //     this.setState({
+  //       future: reading.Judgement
+  //     })
+  //   }
+  // }
 
   render() {
     return <Card body>{this.props.future}</Card>
@@ -374,18 +385,20 @@ export default class Game extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      future: 'test'
+      future: 'Your future awaits...'
     }
   }
 
   updateFuture = () => {
     this.setState({
-      future: 'New Future'
+      future: reading.Judgement
     })
   }
 
   randNumGen = [];
+  
   render() {
+    console.log(this.state);
     return (
       <div className="game">
         <div className="game-caller">
