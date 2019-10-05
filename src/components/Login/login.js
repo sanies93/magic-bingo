@@ -110,7 +110,7 @@ class login extends Component {
                         type="submit"
                         onClick={this.handleSubmit}
                       >
-                        login
+                        <Link to ="/dashboard">login</Link>
                       </Button>
                       <Link to="/register">New User? Register!</Link>
                     
