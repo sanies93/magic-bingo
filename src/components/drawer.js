@@ -23,14 +23,13 @@ import CollectionsIcon from "@material-ui/icons/Brightness4";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 //Other Components imports
-import AccountIcon from "../AccountIcon.js";
+import AccountIcon from "./AccountIcon";
 // import "./drawer.css";
-import "../drawer.css";
-import Singleplayer from "../Single-player/singleplayer";
-import Multiplayer from "../Multiplayer/multiplayer";
-import Readings from "../Previous Readings/readings";
-import Collections from "../Collections/collections";
-import Game from "../Game/game";
+import "./drawer.css";
+import Singleplayer from "./Single-player/singleplayer";
+// import Multiplayer from "../Multiplayer/multiplayer";
+import Readings from "./Previous Readings/readings";
+import Collections from "./Collections/collections";
 
 const drawerWidth = 240;
 
@@ -44,15 +43,15 @@ const routes = [
       </div>
     )
   },
-  {
-    path: "/multiplayer",
-    exact: true,
-    main: () => (
-      <div>
-        <Multiplayer />
-      </div>
-    )
-  },
+  // {
+  //   path: "/multiplayer",
+  //   exact: true,
+  //   main: () => (
+  //     <div>
+  //       <Multiplayer />
+  //     </div>
+  //   )
+  // },
   {
     path: "/readings",
     exact: true,
