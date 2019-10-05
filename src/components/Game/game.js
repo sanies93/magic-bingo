@@ -4,7 +4,7 @@ import BingoCard from "../Bingo-Card/card";
 
 export default function Games() {
   return (
-    <div>
+    <div className="main-background">
       <BingoCard />
     </div>
   );
