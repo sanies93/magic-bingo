@@ -376,7 +376,7 @@ class Reading extends React.Component {
   // }
 
   render() {
-    return <Card body>{this.props.future}</Card>
+    return <div>{this.props.future}</div>
   }
 }
 
