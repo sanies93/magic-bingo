@@ -467,7 +467,7 @@ class Board extends React.Component {
 // Reading component renders a string from the reading dictionary
 class Reading extends React.Component {
   render() {
-    return <Card body>{this.props.future}</Card>
+    return <div className="reading">{this.props.future}</div>
   }
 }
 
