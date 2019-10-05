@@ -120,8 +120,9 @@ class register extends Component {
                         disabled={!this.validateForm()}
                         type="submit"
                         onClick={this.handleSubmit}
+                        
                       >
-                        login
+                        <Link to ="/dashboard">login</Link>
                       </Button>
                       <Link to="/">Already a Member?</Link>
                     </CardActions>
