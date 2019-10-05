@@ -275,7 +275,7 @@ class Caller extends React.Component {
           opacity: 1
         }
       });
-    }, 1000);
+    }, 3000);
   }
 
   render() {
