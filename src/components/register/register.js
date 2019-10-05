@@ -112,18 +112,18 @@ class register extends Component {
                       onChange={this.handleChange}
                     />
                     <CardActions>
-                      {/* <Link to="/"> */}
+                      
                       <Button
                         block
                         bsSize="large"
-                        color="secondary"
+                        color="primary"
                         disabled={!this.validateForm()}
                         type="submit"
                         onClick={this.handleSubmit}
                       >
                         login
                       </Button>
-                      {/* </Link> */}
+                      <Link to="/">Already a Member?</Link>
                     </CardActions>
                   </form>
                 </Typography>
