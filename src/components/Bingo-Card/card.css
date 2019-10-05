@@ -50,5 +50,10 @@ ol, ul {
 }
 
 .game-info {
-  width: 13%;
+  /* width: 13%; */
+  background-image: url("scroll4.png");
+  background-size: contain;
+  height: 400px;
+  width: 400px;
+  background-repeat: no-repeat;
 }
