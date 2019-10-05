@@ -8,7 +8,7 @@ import Game from "./components/Game/game";
 function App() {
   return (
     <Router>
-      <Route path="/register" exact component={Register}/>
+      <Route path="/register" exact component={Register} />
       <Route path="/dashboard" exact component={MiniDrawer} />
       <Route path="/" exact component={Login} />
       <Route path="/game" exact component={Game} />

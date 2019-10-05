@@ -1,8 +1,12 @@
 import React from "react";
-import Game from "../Bingo-Card/card";
+import Banner from "./Readings-banner";
 
 export default function Readings() {
-  return <div>{/* <Game /> */}</div>;
+  return (
+    <div>
+      <Banner />
+    </div>
+  );
 }
 //  const reading = {};
 

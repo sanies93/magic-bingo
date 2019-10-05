@@ -3,14 +3,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import "./single-player.css";
+// import "./single-player.css";
 
 const useStyles = makeStyles({
   card: {
     minWidth: 275,
     maxWidth: 800,
-    display: "flex",
-    justifyContent: "center"
+    display: "flexbox",
+    justifyContent: "center",
+    marginTop: "50px",
+    marginLeft: "400px"
   },
   bullet: {
     display: "inline-block",
@@ -18,7 +20,8 @@ const useStyles = makeStyles({
     transform: "scale(0.8)"
   },
   title: {
-    fontSize: 14
+    display: "flexbox",
+    justifyContent: "center"
   },
   pos: {
     marginBottom: 12
@@ -32,7 +35,8 @@ export default function WelcomeBanner() {
   return (
     <Card className={`${classes.card} banner`}>
       <CardContent>
-        <Typography
+        <h1 className={`${classes.title}`}>Welcome to Magic-Bingo!</h1>
+        {/* <Typography
           className={classes.title}
           color="textSecondary"
           gutterBottom
@@ -53,7 +57,7 @@ export default function WelcomeBanner() {
           well meaning and kindly.
           <br />
           {'"a benevolent smile"'}
-        </Typography>
+        </Typography> */}
       </CardContent>
     </Card>
   );

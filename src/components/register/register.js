@@ -45,20 +45,21 @@ class register extends Component {
   };
 
   render() {
-    console.log(this.state); 
+    console.log(this.state);
 
     return (
       <div className="login">
-        <Card className="classes-card" className="main-back"
-        style={{
-          opacity: 0.9,
-          backgroundColor: "#ffffcc",
-          borderRadius: "300px",
-          width: "600px",
-          height: "600px"
-        }}> 
-
-        
+        <Card
+          className="classes-card"
+          className="main-back"
+          style={{
+            opacity: 0.9,
+            backgroundColor: "#ffffcc",
+            borderRadius: "300px",
+            width: "600px",
+            height: "600px"
+          }}
+        >
           <CardContent>
             <React.Fragment>
               <CssBaseline />
@@ -66,7 +67,6 @@ class register extends Component {
                 <Typography
                   component="div"
                   style={{
-                  
                     opacity: 0.9,
                     backgroundColor: "#ffffcc",
                     height: "600px",
@@ -112,7 +112,6 @@ class register extends Component {
                       onChange={this.handleChange}
                     />
                     <CardActions>
-                      
                       <Button
                         block
                         bsSize="large"
@@ -120,8 +119,10 @@ class register extends Component {
                         disabled={!this.validateForm()}
                         type="submit"
                         onClick={this.handleSubmit}
+                        value="Refresh Page"
+                        onClick="window.location.reload();"
                       >
-                        login
+                        <Link to="/dashboard">Sign up</Link>
                       </Button>
                       <Link to="/">Already a Member?</Link>
                     </CardActions>

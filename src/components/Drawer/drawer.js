@@ -221,14 +221,14 @@ export default function MiniDrawer() {
                 <ListItemText primary="Single-player Game" />
               </ListItem>
             </Link>
-            <Link to="/multiplayer">
+            {/* <Link to="/multiplayer">
               <ListItem button key="Multiplayer Game">
                 <ListItemIcon>
                   <PeopleIcon />
                 </ListItemIcon>
                 <ListItemText primary="Multiplayer Game" />
               </ListItem>
-            </Link>
+            </Link> */}
             <Link to="/readings">
               <ListItem button key="Previous Readings">
                 <ListItemIcon>
