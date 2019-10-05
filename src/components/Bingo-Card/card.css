@@ -43,12 +43,35 @@ ol, ul {
 }
 
 .game {
-  margin-top: 5%;
+  margin-top: 2.5%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 .game-info {
-  width: 13%;
+  background-image: url("scroll3.png");
+  background-size: contain;
+  height: 500px;
+  width: 350px;
+  background-repeat: no-repeat;
+  margin-top: 5%;
+  position: relative;
+}
+
+.reading {
+  /* display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center; */
+  /* align-content: center; */
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 50px;
+  position: relative;
 }
