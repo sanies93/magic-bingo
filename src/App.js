@@ -1,6 +1,6 @@
 import React from "react";
 // import MiniDrawer from "./components/drawer";
-import Drawer from "./components/drawer"
+import Drawer from "./components/Mini Drawer/drawer"
 import Login from "./components/Login/login";
 import Register from "./components/register/register";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";

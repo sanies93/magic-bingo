@@ -17,19 +17,19 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import PersonIcon from "@material-ui/icons/Person";
-import PeopleIcon from "@material-ui/icons/People";
+// import PeopleIcon from "@material-ui/icons/People";
 import ReadingsIcon from "@material-ui/icons/PanTool";
 import CollectionsIcon from "@material-ui/icons/Brightness4";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 //Other Components imports
-import AccountIcon from "./AccountIcon";
+import AccountIcon from "../AccountIcon";
 // import "./drawer.css";
 import "./drawer.css";
-import Singleplayer from "./Single-player/singleplayer";
+import Singleplayer from "../Single-player/singleplayer";
 // import Multiplayer from "../Multiplayer/multiplayer";
-import Readings from "./Previous Readings/readings";
-import Collections from "./Collections/collections";
+import Readings from "../Previous Readings/readings";
+import Collections from "../Collections/collections";
 
 const drawerWidth = 240;
 
@@ -205,8 +205,8 @@ export default function MiniDrawer() {
               {theme.direction === "rtl" ? (
                 <ChevronRightIcon />
               ) : (
-                <ChevronLeftIcon />
-              )}
+                  <ChevronLeftIcon />
+                )}
             </IconButton>
           </div>
           <Divider />
