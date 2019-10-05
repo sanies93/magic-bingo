@@ -10,6 +10,7 @@ router.route('/dashboard').post((req, res) => {
 });
 
 
+
 router.route('/game').post((req, res) => {
     const readings = req.body.readings;
 

@@ -21,7 +21,6 @@ class login extends Component {
 
     this.state = {
       username: "",
-      email: "",
       password: ""
     };
   }
@@ -84,7 +83,7 @@ class login extends Component {
                       margin: "auto"
                     }}
                   >
-                    {/* <Link to="/">Back to Game</Link> */}
+                    
                     <TextField
                       type="username"
                       id="username"
@@ -93,14 +92,6 @@ class login extends Component {
                       value={this.state.username}
                       onChange={this.handleChange}
                     />
-                    {/* <TextField
-                      type="email"
-                      id="email"
-                      label="Email"
-                      margin="normal"
-                      value={this.state.email}
-                      onChange={this.handleChange}
-                    /> */}
                     <TextField
                       id="password"
                       controlId="password"
@@ -111,18 +102,18 @@ class login extends Component {
                       onChange={this.handleChange}
                     />
                     <CardActions>
-                      {/* <Link to="/"> */}
                       <Button
                         block
                         bsSize="large"
-                        color="secondary"
+                        color="primary"
                         disabled={!this.validateForm()}
                         type="submit"
                         onClick={this.handleSubmit}
                       >
                         login
                       </Button>
-                      {/* </Link> */}
+                      <Link to="/register">New User? Register!</Link>
+                    
                     </CardActions>
                   </form>
                 </Typography>
