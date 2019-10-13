@@ -6,7 +6,7 @@ import "./single-player.css";
 export default function SinglePlayer() {
   return (
     <div>
-      <WelcomeBanner />
+      {/* <WelcomeBanner /> */}
       <PlayButton />
     </div>
   );
