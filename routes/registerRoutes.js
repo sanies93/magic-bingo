@@ -1,7 +1,7 @@
 // const router = require('express').Router();
 const app = require('express');
 // let User = require('../models/register.js');
-let User = require('../models/register')
+let User = require('../models/user')
 
 
 module.exports = (app) =>{

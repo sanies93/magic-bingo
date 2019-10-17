@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Magic Bingo
+Magic Bingo is a game similar to La Lotería, a traditional game of chance resembling bingo but instead of numbers, a 4 x 4 grid of images is randomly generated. The MAGIC in Magic Bingo is that the images are tarot cards. Once a player wins a “Bingo”, their winning card gives them a reading. Users who enjoy the practice of tarot cards, whether for fun or spiritual reasons, get the chance to save all their previous readings to go back later and look at.
+

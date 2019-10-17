@@ -1,4 +1,6 @@
 import React from "react";
+import Restart from "./Restart";
+import End from "./End";
 import Card from "@material-ui/core/Card";
 import "./card.css";
 
@@ -494,15 +496,19 @@ export default class Game extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <div className="game">
-        <div className="game-caller">
-          <Caller />
-        </div>
-        <div className="game-board">
-          <Board updateFuture={this.updateFuture} />
-        </div>
-        <div className="game-info">
-          <Reading future={this.state.future} />
+      <div>
+        <div><Restart /></div>
+        <div><End /></div>
+        <div className="game">
+          <div className="game-caller">
+            <Caller />
+          </div>
+          <div className="game-board">
+            <Board updateFuture={this.updateFuture} />
+          </div>
+          <div className="game-info">
+            <Reading future={this.state.future} />
+          </div>
         </div>
       </div>
     );

@@ -1,3 +1,5 @@
+var {isEmail } = require('validator');
+
 var mongoose = require('mongoose');
 
 // Save a reference to the Schema constructor
@@ -11,6 +13,12 @@ var UserSchema = new Schema({
         unique: true,
         trim: true
     },
+    email: {
+        type: String,
+        required: true, 
+        unique: true,
+        validate: [isEmail, 'Invalid Email']
+    }, 
     password: {
         type: String,
         required: true
@@ -26,4 +34,3 @@ var User = mongoose.model('User', UserSchema);
 
 // Export the model
 module.exports = User;
-
