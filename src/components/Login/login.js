@@ -26,10 +26,7 @@ class login extends Component {
   }
 
   validateForm() {
-    return (
-      this.state.username.length > 0 &&
-      this.state.password.length > 0
-    );
+    return this.state.username.length > 0 && this.state.password.length > 0;
   }
 
   handleChange = event => {
@@ -83,7 +80,6 @@ class login extends Component {
                       margin: "auto"
                     }}
                   >
-                    
                     <TextField
                       type="username"
                       id="username"
@@ -109,11 +105,12 @@ class login extends Component {
                         disabled={!this.validateForm()}
                         type="submit"
                         onClick={this.handleSubmit}
+                        value="Refresh Page"
+                        onClick="window.location.reload();"
                       >
-                        <Link to ="/dashboard">login</Link>
+                        <Link to="/dashboard">Login</Link>
                       </Button>
-                      <Link to="/register">New User? Register!</Link>
-                    
+                      <Link to="/register">New User? Register Here!</Link>
                     </CardActions>
                   </form>
                 </Typography>

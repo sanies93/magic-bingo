@@ -1,5 +1,13 @@
 .button-background {
-  background-image: url(../../images/white-smoke.gif);
+  background-image: url(../../images/red-smoke.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.banner {
+  background-image: url(../../images/smoke_clumps_abstract.jpg);
+}
+
+/* .font {
+  color: azure;
+} */

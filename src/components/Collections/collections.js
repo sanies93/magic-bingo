@@ -1,6 +1,10 @@
 import React from "react";
-import Game from "../Bingo-Card/card";
+import Banner from "./collections-banner";
 
 export default function Collections() {
-  return <div>{/* <Game /> */}</div>;
+  return (
+    <div>
+      <Banner />
+    </div>
+  );
 }
